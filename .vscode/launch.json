@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Streamlit paper dashboard",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "app/dashboard.py", "--server.address", "127.0.0.1", "--server.port", "8501"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": { "EXECUTION_MODE": "PAPER" }
+    },
+    {
+      "name": "Read-only local API",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "app.api",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": { "EXECUTION_MODE": "PAPER" }
+    }
+  ]
+}

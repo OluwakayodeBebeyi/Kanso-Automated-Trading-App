@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Python: install project and dev tools",
+      "type": "shell",
+      "command": "${env:LOCALAPPDATA}\\StockPaperTrader\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "pip", "install", "-e", ".[dev]"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: tests",
+      "type": "shell",
+      "command": "${env:LOCALAPPDATA}\\StockPaperTrader\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "pytest"],
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Paper trading: dashboard",
+      "type": "shell",
+      "command": "${env:LOCALAPPDATA}\\StockPaperTrader\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "streamlit", "run", "app/dashboard.py", "--server.address", "127.0.0.1", "--server.port", "8501"],
+      "options": { "env": { "EXECUTION_MODE": "PAPER" } },
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Paper trading: report scheduler once",
+      "type": "shell",
+      "command": "${env:LOCALAPPDATA}\\StockPaperTrader\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "app.scheduler", "--once"],
+      "options": { "env": { "EXECUTION_MODE": "PAPER" } },
+      "problemMatcher": []
+    }
+  ]
+}

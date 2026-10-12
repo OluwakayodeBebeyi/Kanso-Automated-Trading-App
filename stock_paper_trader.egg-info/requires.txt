@@ -1,0 +1,9 @@
+streamlit<2,>=1.40
+yfinance<2,>=0.2.50
+python-dotenv<2,>=1
+pandas<4,>=2.2
+tzdata>=2024.1
+
+[dev]
+pytest<9,>=8
+ruff<1,>=0.17
