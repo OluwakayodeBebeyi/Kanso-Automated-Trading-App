@@ -29,10 +29,15 @@ def resources():
 
 
 settings, store, provider = resources()
-st.set_page_config(page_title="Paper Trading Analysis", layout="wide")
+st.set_page_config(
+    page_title="Kanso Consulting | Paper Trading Analysis",
+    page_icon="public/kanso-icon.png",
+    layout="wide",
+)
 st.title("Market Analysis and Paper Trading")
 st.info("PAPER TRADING - simulated orders only. No live broker integration exists.")
 with st.sidebar:
+    st.image("public/kanso-logo.png", width=240)
     st.subheader("Paper trading safety")
     kill_state = store.kill_switch_status()
     if kill_state["enabled"]:
